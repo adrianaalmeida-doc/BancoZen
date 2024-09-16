@@ -151,8 +151,12 @@ root = tk.Tk()
 root.title("Banco Digital Zen")
 
 # Label título centralizado
-label_titulo = tk.Label(root, text="Banco Digital Zen", font=("Helvetica", 32, "bold"))
+label_titulo = tk.Label(root, text="Banco Digital Zen", font=("Helvetica", 30, "bold"))
 label_titulo.pack(pady=20)  # Centraliza 
+# Label subtítulo
+label_titulo = tk.Label(root, text="Cadastro de Clientes", font=("Helvetica", 24, "bold"),
+                        bg="black", fg="white", borderwidth=2, relief="solid")
+label_titulo.pack(pady=(10, 5))
 
 #  tela cheia
 root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}")
@@ -182,14 +186,14 @@ entry_destino.grid(row=3, column=1, padx=10, pady=5, ipady=5)
 button_frame = tk.Frame(root)
 button_frame.pack(pady=20)
 
-tk.Button(button_frame, text="Criar Conta", command=criar_conta_gui, width=20).grid(row=0, column=0, padx=10, pady=5)
-tk.Button(button_frame, text="Remover Conta", command=remover_conta_gui, width=20).grid(row=0, column=1, padx=10, pady=5)
-tk.Button(button_frame, text="Atualizar Conta", command=atualizar_conta_gui, width=20).grid(row=0, column=2, padx=10, pady=5)
-tk.Button(button_frame, text="Consultar Conta", command=consultar_conta_gui, width=20).grid(row=0, column=3, padx=10, pady=5)
+tk.Button(button_frame, text="Criar Conta", command=criar_conta_gui, width=20, font=('Helvetica', 12, 'bold'), bg='light green').grid(row=0, column=0, padx=10, pady=5)
+tk.Button(button_frame, text="Remover Conta", command=remover_conta_gui, width=20, font=('Helvetica', 12, 'bold'), bg='salmon').grid(row=0, column=1, padx=10, pady=5)
+tk.Button(button_frame, text="Atualizar Conta", command=atualizar_conta_gui, width=20, font=('Helvetica', 12, 'bold'), bg='yellow').grid(row=0, column=2, padx=10, pady=5)
+tk.Button(button_frame, text="Consultar Conta", command=consultar_conta_gui, width=20, font=('Helvetica', 12, 'bold'), bg='yellow').grid(row=0, column=3, padx=10, pady=5)
 
-tk.Button(button_frame, text="Depósito", command=deposito_gui, width=20).grid(row=1, column=0, padx=10, pady=5)
-tk.Button(button_frame, text="Saque", command=saque_gui, width=20).grid(row=1, column=1, padx=10, pady=5)
-tk.Button(button_frame, text="Transferência", command=transferencia_gui, width=20).grid(row=1, column=2, padx=10, pady=5)
-tk.Button(button_frame, text="Salvar e Sair", command=salvar_sair, width=20).grid(row=1, column=3, padx=10, pady=5)
+tk.Button(button_frame, text="Depósito", command=deposito_gui, width=20, font=('Helvetica', 12, 'bold'), bg='light blue').grid(row=1, column=0, padx=10, pady=5)
+tk.Button(button_frame, text="Saque", command=saque_gui, width=20,font=('Helvetica', 12, 'bold'), bg="light blue").grid(row=1, column=1, padx=10, pady=5)
+tk.Button(button_frame, text="Transferência", command=transferencia_gui, width=20, font=('Helvetica', 12, 'bold'), bg='yellow').grid(row=1, column=2, padx=10, pady=5)
+tk.Button(button_frame, text="Salvar e Sair", command=salvar_sair, width=20, font=('Helvetica', 12, 'bold'), bg="light blue").grid(row=1, column=3, padx=10, pady=5)
 
 root.mainloop()
