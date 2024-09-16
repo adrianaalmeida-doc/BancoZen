@@ -142,34 +142,54 @@ def salvar_sair():
     salvar_dados()
     root.destroy()
 
-# Configuração da interface gráfica
+
+
+# Criação da janela
 root = tk.Tk()
+
+# Definir título da janela
 root.title("Banco Digital Zen")
 
+# Label título centralizado
+label_titulo = tk.Label(root, text="Banco Digital Zen", font=("Helvetica", 32, "bold"))
+label_titulo.pack(pady=20)  # Centraliza 
+
+#  tela cheia
+root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}")
+
+
 # Layout
-tk.Label(root, text="Número da Conta:").grid(row=0, column=0)
-entry_numero = tk.Entry(root)
-entry_numero.grid(row=0, column=1)
+frame = tk.Frame(root)
+frame.pack(pady=20)
 
-tk.Label(root, text="Nome do Titular:").grid(row=1, column=0)
-entry_nome = tk.Entry(root)
-entry_nome.grid(row=1, column=1)
+tk.Label(frame, text="Número da Conta:", font=("Helvetica", 12)).grid(row=0, column=0, padx=20, pady=10)
+entry_numero = tk.Entry(frame, width=30)
+entry_numero.grid(row=0, column=1, padx=10, pady=5, ipady=5)
 
-tk.Label(root, text="Saldo:").grid(row=2, column=0)
-entry_saldo = tk.Entry(root)
-entry_saldo.grid(row=2, column=1)
+tk.Label(frame, text="Nome do Titular:", font=("Helvetica", 12)).grid(row=1, column=0, padx=10, pady=5)
+entry_nome = tk.Entry(frame, width=30)
+entry_nome.grid(row=1, column=1, padx=10, pady=5, ipady=5)
 
-tk.Label(root, text="Número da Conta Destino:").grid(row=3, column=0)
-entry_destino = tk.Entry(root)
-entry_destino.grid(row=3, column=1)
+tk.Label(frame, text="Saldo:", font=("Helvetica", 12)).grid(row=2, column=0, padx=10, pady=5)
+entry_saldo = tk.Entry(frame, width=30)
+entry_saldo.grid(row=2, column=1, padx=10, pady=5, ipady=5)
 
-tk.Button(root, text="Criar Conta", command=criar_conta_gui).grid(row=4, column=0, pady=5)
-tk.Button(root, text="Remover Conta", command=remover_conta_gui).grid(row=4, column=1, pady=5)
-tk.Button(root, text="Atualizar Conta", command=atualizar_conta_gui).grid(row=4, column=2, pady=5)
-tk.Button(root, text="Consultar Conta", command=consultar_conta_gui).grid(row=4, column=3, pady=5)
-tk.Button(root, text="Depósito", command=deposito_gui).grid(row=5, column=0, pady=5)
-tk.Button(root, text="Saque", command=saque_gui).grid(row=5, column=1, pady=5)
-tk.Button(root, text="Transferência", command=transferencia_gui).grid(row=5, column=2, pady=5)
-tk.Button(root, text="Salvar e Sair", command=salvar_sair).grid(row=5, column=3, pady=5)
+tk.Label(frame, text="Número da Conta Destino:", font=("Helvetica", 12)).grid(row=3, column=0, padx=10, pady=5)
+entry_destino = tk.Entry(frame, width=30)
+entry_destino.grid(row=3, column=1, padx=10, pady=5, ipady=5)
+
+# Botões
+button_frame = tk.Frame(root)
+button_frame.pack(pady=20)
+
+tk.Button(button_frame, text="Criar Conta", command=criar_conta_gui, width=20).grid(row=0, column=0, padx=10, pady=5)
+tk.Button(button_frame, text="Remover Conta", command=remover_conta_gui, width=20).grid(row=0, column=1, padx=10, pady=5)
+tk.Button(button_frame, text="Atualizar Conta", command=atualizar_conta_gui, width=20).grid(row=0, column=2, padx=10, pady=5)
+tk.Button(button_frame, text="Consultar Conta", command=consultar_conta_gui, width=20).grid(row=0, column=3, padx=10, pady=5)
+
+tk.Button(button_frame, text="Depósito", command=deposito_gui, width=20).grid(row=1, column=0, padx=10, pady=5)
+tk.Button(button_frame, text="Saque", command=saque_gui, width=20).grid(row=1, column=1, padx=10, pady=5)
+tk.Button(button_frame, text="Transferência", command=transferencia_gui, width=20).grid(row=1, column=2, padx=10, pady=5)
+tk.Button(button_frame, text="Salvar e Sair", command=salvar_sair, width=20).grid(row=1, column=3, padx=10, pady=5)
 
 root.mainloop()
