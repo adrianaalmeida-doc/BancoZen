@@ -1,19 +1,27 @@
-import json
-from dados import contas
+import tkinter as tk
+from tkinter import messagebox
+from dados import*
 
-def criar_conta(numero, nome, saldo):
-    contas[numero] = {'nome': nome, 'saldo': saldo}
+
+def criar_conta(numero, nome_titular, saldo, tipo):
+    contas[numero] = {'saldo': saldo, 'tipo': tipo}
+    users[numero] = {'nome': nome_titular}
+    salvar_dados()
+    salvar_usuarios()
 
 def remover_conta(numero):
     if numero in contas:
         del contas[numero]
+        del users[numero]
 
-def atualizar_conta(numero, nome=None, saldo=None):
+def atualizar_conta(numero, nome=None, saldo=None, tipo=None):
     if numero in contas:
         if nome:
-            contas[numero]['nome'] = nome
+            users[numero]['nome'] = nome
         if saldo is not None:
             contas[numero]['saldo'] = saldo
+        if tipo:
+            contas[numero]['tipo'] = tipo
 
 def consultar_conta(numero):
     return contas.get(numero, None)

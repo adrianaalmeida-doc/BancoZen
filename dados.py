@@ -1,11 +1,14 @@
 import json
 
-# Estrutura inicial para armazenar contas
+# Estruturas iniciais
 contas = {}
+users = {}
 
 def salvar_dados():
-    with open('contas.json', 'w') as f:
-        json.dump(contas, f)
+    with open('contas.json', 'a') as f: 
+        json.dump(contas, f, indent=4)
+print(f"Dados de contas salvos: {contas}")  
+
 
 def carregar_dados():
     global contas
@@ -14,3 +17,19 @@ def carregar_dados():
             contas = json.load(f)
     except FileNotFoundError:
         contas = {}
+    except json.JSONDecodeError:
+        contas = {}  
+
+def salvar_usuarios():
+    with open('usuarios.json', 'a') as f: 
+        json.dump(users, f, indent=4)
+
+def carregar_usuarios():
+    global users
+    try:
+        with open('usuarios.json', 'r') as f:
+            users = json.load(f)
+    except FileNotFoundError:
+        users = {}
+    except json.JSONDecodeError:
+        users = {} 
