@@ -175,10 +175,9 @@ def listar_relatorio_gui():
     text_area.config(state=tk.DISABLED) 
 
 def salvar_sair():
-    salvar_dados()
-    salvar_usuarios()
-
-    root.destroy()
+    salvar_dados()  # Salva as contas
+    salvar_usuarios()  # Salva os usuários
+    root.destroy()  # Fecha a janela do sistema
 
 # Criação da janela
 root = tk.Tk()
